@@ -1,17 +1,21 @@
-class Solution:
-    def maxLength(self, arr: List[str]) -> int:
-        l=[set()]
-        for i in arr:
-            if len(set(i)) < len(i):
+class Solution(object):
+    def maxLength(self, arr):
+        """
+        :type arr: List[str]
+        :rtype: int
+        """
+        validSubsets = [set()]
+        for word in arr:
+            if len(set(word)) < len(word):
                 continue
-            i = set(i)
-            for j in l:
-                if i & j:
+            wordSet = set(word)
+            for existingSet in validSubsets: 
+                if wordSet & existingSet:
                     continue
-                l.append(i | j)
-        m = 0
-        for i in l:
-            if m < len(i):
-                m = len(i)
-        return m
-        
+                validSubsets.append(wordSet | existingSet)
+
+        maxLen = 0 
+        for subset in validSubsets:
+            maxLen = max(maxLen, len(subset)) 
+        return maxLen
+

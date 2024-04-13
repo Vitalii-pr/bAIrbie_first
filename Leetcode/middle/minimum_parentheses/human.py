@@ -4,16 +4,16 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        open_count = 0  # Count of currently open parentheses
-        unmatched = 0   # Count of parentheses needing a match
+        open_count = 0
+        unmatched = 0
 
         for ch in s:
             if ch == '(':
                 open_count += 1
-            else:  # It's a closing parenthesis
-                if open_count > 0: 
-                    open_count -= 1  # We found a match
+            else:
+                if open_count > 0:
+                    open_count -= 1
                 else:
-                    unmatched += 1   # Need to add an opening parenthesis
+                    unmatched += 1
 
-        return open_count + unmatched 
+        return open_count + unmatched

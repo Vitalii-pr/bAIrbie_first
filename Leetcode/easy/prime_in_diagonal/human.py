@@ -24,17 +24,14 @@ class Solution(object):
         rows, cols = len(nums), len(nums[0])
         largest_prime = 0
 
-        # Iterate over the top-left to bottom-right diagonal
         for i in range(rows):
             diagonal_value = nums[i][i]
             if is_prime(diagonal_value):
                 largest_prime = max(largest_prime, diagonal_value)
 
-        # Handle the case where the bottom-right corner element is not included in the previous loop
         if cols > rows and is_prime(nums[rows - 1][cols - 1]):
             largest_prime = max(largest_prime, nums[rows - 1][cols - 1])
 
-        # Iterate over the top-right to bottom-left diagonal (only applicable if the matrix has more columns than rows)
         if cols > rows:
             for i in range(cols):
                 diagonal_value = nums[i][cols - i - 1]

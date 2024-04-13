@@ -11,17 +11,12 @@ class Solution:
             if sl == len(s):
                 tl -= 1
                 break
-            # save smallest sleft for all left
             k[tl] = sl
             sl += 1
-            
-        # we set left = -1, when we don't use left
+
         k[-1] = -1
         ans = tr - tl
-        # iterate every left by decreasing one
-        # releave the limitation of s[sleft:]
         for ntl in range(tl, -2, -1):
-            # every time we decrease left, check if right can be decreased
             while tr > ntl and sr > k[ntl]:
                 if s[sr] != t[tr]:
                     sr -= 1
