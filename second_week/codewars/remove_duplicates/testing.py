@@ -42,5 +42,6 @@ def test() -> None:
             print(f'{i[1] }Time: {time.time() - start}, Memory usage: {end_memory - start_memory}')
         print('--------')
 
-
-test()
+if __name__ == '__main__':
+    print('Testing')
+    test()

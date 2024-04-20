@@ -11,24 +11,30 @@ class Node:
         self.next = n
 
 
-for i in range(len(TESTS)):
+def test():
+    for i in range(len(TESTS)):
 
-    first_node = Node()
-    curr = first_node
-    for _ in range(TESTS[i]):
-        curr.next = Node()
-        curr = curr.next
+        first_node = Node()
+        curr = first_node
+        for _ in range(TESTS[i]):
+            curr.next = Node()
+            curr = curr.next
 
-    curr.next = first_node
+        curr.next = first_node
 
-    print(f'Testing {TESTS[i]}')
+        print(f'Testing {TESTS[i]}')
 
-    start_time = time.time()
-    original_code.loop_size(first_node)
-    print('Original code:', time.time() - start_time)
+        start_time = time.time()
+        original_code.loop_size(first_node)
+        print('Original code:', time.time() - start_time)
 
-    start_time = time.time()
-    optimized.loop_size(first_node)
-    print('Optimized code:', time.time() - start_time)
+        start_time = time.time()
+        optimized.loop_size(first_node)
+        print('Optimized code:', time.time() - start_time)
 
-    print('-----------')
+        print('-----------')
+
+
+if __name__ == '__main__':
+    print('Testing')
+    test()
