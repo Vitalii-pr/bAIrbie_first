@@ -2,6 +2,7 @@ import random
 import time
 import original, optimized_first, optimized_second, optimized_third
 from memory_profiler import memory_usage
+import tracemalloc
 
 
 TESTS = [10, 100, 1000, 10_000, 1_000_000]
